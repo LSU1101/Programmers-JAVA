@@ -20,5 +20,7 @@ public class StringBufferExam {
         String str2 = "Hello" + " " + "world";
 
         System.out.println(str2);
+
+        System.out.println("배고파");
     }
 }
