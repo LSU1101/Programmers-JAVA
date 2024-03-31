@@ -1,0 +1,14 @@
+name: github checkout
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout 코드
+      uses: actions/checkout@v2
+
+    - name: Install JDK
+      uses: actions/setup-java@v1
