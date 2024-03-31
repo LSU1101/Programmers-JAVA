@@ -10,10 +10,11 @@ jobs:
     - name: Checkout.
       uses: actions/checkout@v2
 
-    - name: Install JDK.
+    - name: Install JDK and Gradle.
       uses: actions/setup-java@v1
       with:
         java-version: '20'
+        gradle-version: '7.x'
 
     - name: Project build and test.
       run: |
