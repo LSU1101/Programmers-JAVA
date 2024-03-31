@@ -8,18 +8,20 @@ jobs:
 
     steps:
     - name: Checkout.
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Install JDK and Gradle.
-      uses: actions/setup-java@v1
+    - name: Set up JDK.
+      uses: actions/setup-java@v3
       with:
-        java-version: '20'
-        gradle-version: '7.x'
+        java-version: 11
+        distribution: microsoft
 
-    - name: Project build and test.
-      run: |
-        ./gradlew clean test
+    - name: Grant excute permission for gradlew
+      run: chmod +x gradlew
 
-    - name: Save test result.
-      run: |
-        cat build/reports/tests/test-result/test/*.xml
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build
+        cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+    
