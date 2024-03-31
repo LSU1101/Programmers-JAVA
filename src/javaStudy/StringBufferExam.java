@@ -17,7 +17,7 @@ public class StringBufferExam {
             System.out.println("sb2 == sb3");
         }
 
-        String str2 = new StringBuffer().append("Hello").append(" ").append("world").toString();
+        String str2 = "Hello" + " " + "world";
 
         System.out.println(str2);
     }
